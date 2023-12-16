@@ -13,6 +13,8 @@ export class CardComponent {
   imagesource!: string;
   capacitetype!: string;
   capacitevaleur!: number;
+  owned!: boolean;
+  ownedText!: string;
 
   ngOnInit(): void {
     this.id = 74;
@@ -21,5 +23,17 @@ export class CardComponent {
     this.imagesource = 'assets/images/mv064.jpg';
     this.capacitetype = 'COURAGE PUISSANCE INTELLIGENCE';
     this.capacitevaleur = 6;
+    this.owned = false;
+    this.ownedText = 'Je l\'ai pas';
+  }
+
+  onCard() {
+    if (!this.owned) {
+      this.ownedText = 'Je l\'ai';
+      this.owned = true;
+    } else {
+      this.ownedText = 'Je l\'ai pas';
+      this.owned = false;
+    }
   }
 }
